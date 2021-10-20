@@ -1,0 +1,19 @@
+<h2>About</h2>
+
+<div>
+    <!-- this part is from django in curly braces, from view-->
+    <p>{{ about}}</p>
+    <p>A website by {{ author }}</p>
+
+    {% if author %}
+    <p>The author's name has been provided</p>
+    
+    {% else %}
+    <p>The author's name has not been provided</p>
+
+    {% endif %}
+    
+    {% for letter in 'hello' %}
+    <p>  {{ letter }}</p>
+    {% endfor %}
+</div>

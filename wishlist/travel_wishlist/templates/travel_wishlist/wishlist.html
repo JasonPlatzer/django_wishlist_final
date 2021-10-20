@@ -1,0 +1,33 @@
+{% extends 'travel_wishlist/base.html' %}
+{% block content %}
+
+<h2>Travel Wishlist</h2>
+
+<form method="POST" action="{% url 'place_list' %}">
+    <!-- the action looks up homepage from urls.py-->
+    {% csrf_token %}
+    {{ new_place_form }}
+    <!-- creates input field in webpage-->
+    <button id="add-new-place" type="submit">Add</button>
+</form>
+
+
+{% for place in places %}
+
+<div class="wishlist-place">
+    {{ place.name }}
+    <form class="visited-form" method='POST' action="{% url 'place_was_visited' place.pk %}">
+        <!-- generates a request to path with specific pk in url-->
+        {% csrf_token %}
+        <button>Visited</button>
+    </form>
+</div>
+
+{% empty %}
+<!-- if for loop is empty this runs-->
+<p>You have no places in your wishlist</p>
+
+{% endfor %}
+
+{% endblock %}
+<!-- everything in block will be put in base block content-->
