@@ -15,11 +15,12 @@
 {% for place in places %}
 
 <div class="wishlist-place">
-    {{ place.name }}
+    <!-- id's are to test selenium-->
+    <span id="place-name- {{ place.pk }}" class="place-name">{{ place.name }}</span>
     <form class="visited-form" method='POST' action="{% url 'place_was_visited' place.pk %}">
         <!-- generates a request to path with specific pk in url-->
         {% csrf_token %}
-        <button>Visited</button>
+        <button id="visited-button-{{ place.pk }}">Visited</button>
     </form>
 </div>
 
