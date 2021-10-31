@@ -20,3 +20,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('travel_wishlist.urls'))
 ]
+
+# where to send static files
+from django.conf import settings
+from django.conf.urls.static import static
+
+# checks if we are running localy using developer server
+if settings.DEBUG:
+    # roots to static files
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
