@@ -118,6 +118,4 @@ def delete_place(request, place_pk):
     else:
         return HttpResponseForbidden
 
-
-
-
+   
