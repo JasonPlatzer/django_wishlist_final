@@ -3,3 +3,4 @@ from .models import Place
 
 
 admin.site.register(Place)
+#
