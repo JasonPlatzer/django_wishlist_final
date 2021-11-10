@@ -26,7 +26,7 @@ SECRET_KEY = '*#oqo0yt++rzgg^kmsom%6ofqs!p%$u*q4mo*@wfk(yu^-qgne'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'travel',
         'USER': 'mctc',
-        'PASSWORD':'mctc_pass',
+        'PASSWORD': os.getenv('MCTC_PASS'),
         'HOST': '/cloudsql/wishlistdjango:us-central1:wishlistdb',
         'PORT': '5432' 
     }
@@ -127,6 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
 # where to send media files, MEDIA_URL must be exact
 MEDIA_URL = '/media/'
