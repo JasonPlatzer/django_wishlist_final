@@ -126,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
@@ -134,7 +134,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 MEDIA_URL = '/media/'
 # where to save files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-GS_STATIC_FILE_BUCKET = 'wishlistdjango.appspot.com'
-STATIC_URL = f'https://storage.cloud.google.com/{GS_STATIC_FILE_BUCKET}/static/'
