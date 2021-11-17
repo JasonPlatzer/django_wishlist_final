@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*#oqo0yt++rzgg^kmsom%6ofqs!p%$u*q4mo*@wfk(yu^-qgne'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -131,6 +131,22 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
 # where to send media files, MEDIA_URL must be exact
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 # where to save files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+GS_BUCKET_NAME = 'jasonp-images-bucket'
+MEDIA_URL = f'https://storage.cloud.google.com/{GS_BUCKET_NAME}/media/'
+
+DEFAULT_FILE_STORAGE = 'storage.backends.gcloud.GoogleCloudStorage'
+
+from google.oauth2 import service_account
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file('travel_credentials.json')
+
+
+
+
+
+
+
